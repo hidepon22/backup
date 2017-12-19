@@ -1,0 +1,38 @@
+/**
+ *
+ */
+
+/**
+ * @author internousdev
+ *
+ */
+public class test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+
+		person taro=new person();
+		taro.name="山田太郎";
+		taro.age=20;
+		taro.phoneNumber="080-1111-1111";
+		taro.address="taro@gmail.com";
+
+		person hanako=new person();
+		hanako.name="鈴木花子";
+		hanako.age=18;
+		hanako.phoneNumber="080-8787-8787";
+		hanako.address="hanako@gmail.com";
+
+		person noob=new person();
+		noob.name="小西拓斗";
+		noob.age=22;
+		noob.phoneNumber="No phone,coz he doesn`t have monney.";
+		noob.address="noob@gmail.com";
+
+		hanako.run();
+	}
+
+}
