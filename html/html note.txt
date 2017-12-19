@@ -1,0 +1,135 @@
+1.html基本の形
+
+<!DOCTYPE html>
+
+<html lang="ja">
+ <head>
+  <meta charset-"UTF-8">
+  <title> 題名</title>
+ </head>
+ 
+ <body>
+ 
+ 内容
+ 
+ </body>
+ 
+</html>
+
+
+*cssファイルのリンク
+タイトルの下に　　<link rel="stylesheet" type="text/css" href="ファイル名">
+
+*jsファイルのリンク
+<body>内に　　　　<script src="jsのファイル名"></script>
+
+*jQueryファイルのリンク
+cssリンクの下に　 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+2.改行
+
+～～<br>
+
+
+3.タグ（見出し用の文字の太さ）
+
+<h1>  =>  一番太い
+<h6>  =>  一番細い
+
+<h1> ～～　</h1>
+
+
+4.タグ（一行スペース）
+
+<p>
+～～～～～
+</p>
+
+
+5.リンク
+
+<a href="リンク先のURL">テキストorリンク先の題名</a>
+
+
+6.画像
+
+<img src="./保存先のフォルダー名/絶対パス">
+
+
+7.テーブル
+
+<table border="" cellspacing="" cellpadding="">
+ <tr>
+  <th>～～～</th>
+ <tr>
+  <td>～～～</td>
+ </tr>
+
+
+8.teble color
+
+<table bgcolor="カラーコード">
+
+<tr bgcolor="カラーコード">
+</tr>
+
+<td bgcolor="カラーコード"></td>
+</table>
+
+
+9.入力欄
+
+<form method="" action="">      
+     <@>
+</form>
+
+10.<@>
+
+*1 Name
+<input type="text" name="" size="">
+
+*2 Password
+<input type="password" name="" size="">
+
+*3 File
+<input type="file" name="" size"">
+
+*4 チェックボタン
+<input type="radio" name="" value="">～～～
+　　　　　　　　or
+<input type="checkbox" name="" value="">～～～
+
+</label>で囲むと文字をクリックしてもok
+
+*5 Send
+<input type="submit" value="～～">
+
+*6 Text
+<textarea name="" rows="" cols=""></textarea>
+
+rows=入力欄の高さ　cols=入力欄の幅
+placeholder="～～～～～～～"　入力欄の中の文字を書ける
+
+*7 Select
+<select name="">
+   <option value="">AAA</option>
+   <option value="">BBB</option>
+   <option value="">CCC</option>
+</select>
+
+11.リスト
+
+*点
+
+<ul>
+   <li>AAA</li>
+   <li>BBB</li>
+</ul>
+
+*数字
+
+<ol>
+   <li>AAA</li>
+   <li>BBB</li>
+</ol>

@@ -1,0 +1,236 @@
+まずはXAMPPのダウンロード
+
+Xamppとはオープンソース（有志のボランティア）によって運営されてる無料のデータベースで、
+webシステムの多くがこのデータデータベースを使用している。
+使用方法はxampp(ザンプ)を自分のPCにインストールして
+その上でMySQLを使用する
+
+
+テーブルの操作方法
+
+作成と削除方法
+
+　　|　対応するSQL文　|　　　　　　　操作内容・意味・活用事例
+ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+１．|　　Create文     |        データベースにテーブルを作成する。
+２．|    Dropt文      |           作成したテーブルを削除する。
+
+
+CRUDと呼ばれる４つのデータベース操作
+
+　　名称　　|  対応するSQL文  |         操作内容/意味/活用事例
+---------------------------------------------------------------------------------
+   Create   |    insert文   |  何らかの情報(データ)をテーブルに書き込む。
+
+例.FaceBookに新規でアカウトを作る際に自分の名前やメールアドレスを登録する
+   際(アカウント作成の際)には、FaceBookのシステムの裏側で、insert文が走っている。
+
+    Read    |    select文   |テーブルに既に入っている何らかの情報(データ)を呼び出す。
+
+例.FaceBookに既に登録しており(アカウントを持っている)、ログインした際に、
+   自分のプロフィール写真や、自分の過去の投稿内容がなどが表示されるが、
+   その裏側ではselect文が走っている。
+
+   Update   |    update文   |テーブルに既に入っている何らかの情報(データ)を上書きする。
+
+例.FaceBookに既に登録しており(アカウントを持っている)、登録済みのメールアドレスを
+   変更したい場合などに、その裏側でupdate文が走っている。
+
+   Delete   |    delete文   |テーブルに既に入っている何らかの情報(データ)を削除する。
+
+例.FaceBookに既に登録しているアカウントを削除(退会など)する際に、
+   その裏側でdelete文が走っている。
+
+
+create文
+＊phpMyadmin上でテーブルを作る時には、GUI(ボタンをクリックなど)で、
+　作成することも出来ますが、今回は、create文を打ってテーブルを作成します。
+
+create table テーブル名(       *create table.テーブルを作る際の決まり文句
+カラム名 データ型,　　　　　　 * テーブル名 .任意のテーブル名
+カラム名 データ型　　　　　　　*  カラム名  .テーブルの列(縦)の名前
+);　　　　　　　　　　　　　　 *  データ型　.データの保存の仕方を表しています。
+
+phpMyAdmin上でcreate文でテーブルを作成
+create table addresslist(　　　テーブルを作る際の決まり文句とテーブル名
+user_id int(11),　　　　　 
+name varchar(255),　　　　　　user_idという名前のカラムを作るという意味。
+mail varchar(255), 　　　　　「int」とは、このカラムに挿入するデータは、
+tell varchar(255), 　　　　　　数字にするという意味。
+prefecture varchar(255));
+
+「name」「mail」「tell」「prefecture」という名前のカラムをそれぞれ作るという意味。
+「VARCHAR」とは、このカラムに挿入するデータは、文字列にするという意味。
+最初のうちは常に255とだけ覚える。
+
+
+insert文
+テーブル内に情報を入れるには、テーブルにデータをinsert文を挿入していく必要がある。
+
+基本記入方法
+insert into テーブル名(カラム名,カラム名,カラム名,...)
+values("挿入するデータ","挿入するデータ","挿入するデータ",...);
+                        or
+insert into テーブル名
+values("挿入するデータ","挿入するデータ","挿入するデータ",...);
+
+values()と書き、()内には、各カラムに挿入するデータを書く。
+・挿入するデータは、カンマ『,』で区切ること。
+・今回は、user_idは、int(数字)を挿入するカラムで、
+　それ以外は全てVARCHAR(文字列)のカラム。
+・挿入するデータが、int(数字)の場合は、ダブルクオテーションで囲む必要はなし
+　(過去っても良い)、挿入するデータが、VARCHAR(文字列)の場合は、
+　ダブルクオテーションで囲むこと。
+
+
+select文
+記入法
+select XXXX from テーブル名
+
+XXXX=>抽出したい対象のカラム名を記述する。全てのカラムを対象とする場合は、*を記述する。
+*=>all(全て)という意味
+複数のカラムを抽出対象とする場合は、カンマで区切る。
+
+
+where
+select文でデータを抽出する
+
+記入法
+select XXXX from テーブル名 where="";
+
+*where=の右側は、データ型がvarchar（文字）であれば、
+ダブルクオテーションを入れる事。int（数字）であれば、ダブルクオテーションなしでOK。
+
+whereの部分には、= 以外にも様々な演算子が使用できます。
+　演算子　　　　　　　　　説明
+　　=                    等しい　　　
+    >　　　　　　　　　　大きい
+    <　　　　　　　　　　小さい
+    >=　　　　　　大きい、もしくは等しい
+    <=　　　　　　小さい、もしくは等しい　
+ != or <>　　　　　　　等しくない
+    AND　　　　　２つの条件を結合し、両方の条件が真
+    OR　　　　　　2つの条件のうち、どちらか一方が真
+    NOT　　　　　　　式の結果を反転
+ BETWEEN a AND b　対象のフィールドaとbの範囲内
+   LIKE 　　　　　対象のフィールドがパターンに一致　
+
+
+update文
+テーブルに入っているデータを上書きして更新するために使用するSQL文です。
+
+記入法
+update テーブル名 set カラム名 ="XXX"
+
+updateとsetは決まり文句
+テーブル名に更新したい対象のカラム名を記述する。
+全てのカラムを対象とする場合は、*を記述する。
+＊データを指定する場合は、上記の後ろにwhere カラム名 = ●●●; とする。
+
+例
+update addresslist set prefecture = "埼玉" where user_id = 1;
+これで、user_id 1のprefectureは埼玉に更新される。
+
+
+delete文
+テーブルに入っているデータを削除する為に使用するSQL文です。
+
+記入法
+delete from テーブル名
+
+delete fromは決まり文句
+テーブル名に削除したい対象のテーブル名を記述する。
+データを指定する場合は、上記の後ろにwhere カラム名 = ●●●; とする。
+
+例
+delete from addresslist where user_id=3;
+これで、user_id 3は消される。
+
+
+ソート
+MySQLなどのデータベースではselect文でデータを抽出する際に、
+データを並び替えて表示をすることが出来ます。これをソートと言います。
+
+記入法
+select カラム名 from テーブル名 order by カラム名;
+通常のselect文+order by+カラム名
+　　　　　　　　　||      ||
+　　　　　　　決まり文句  ||
+                          ||
+          このカラム順に並び替えるという意味
+
+例
+例えば、fruit_stock（果実のストック）のテーブルを作ったとします。
+カラム名は
+ id ,fruit ,number ,price ,madein
+            ||
+create table fruit_stock(
+id int(11),
+fruit varchar(255),
+number int(11), 
+price int(11), 
+madein varchar(255));
+とします。
+そして、ソート文を　　　　　　　　　　　　　　　　　　＊asc,descは並び替えの順番
+select * from fruit_stock order by numder asc;　　　　　ascは上から小さい順
+とします。　　　　　　　　　　　　　　　　　　　　　　　descは上から大きい順
+するとfruit_stockのnumber（個数）が上から小さい順に並び替えられる。
+
+またnumberが20個以上のもののみを対象をして、priceの高い順に並び替える場合は
+select * from fruit_stock where number >=20 order by price desc;
+と記入する
+*select文+where文+order by+カラム名;
+
+するとnumberが25個以上のモノのみを対象として、priceが高い順に並び替わる。
+
+
+データの集計
+
+MySQLなどのデータベースではselect文で合計値、最大値、平均値などのデータの集計が可能
+
+1* 該当する件数を取得
+記入法
+select count(カラム名) from テーブル名;
+
+select cont+fromは決まり文句
+カラム名は対象とするカラム名　＊この部分に『*(=all)』を入れる事も可能です。
+テーブル名は対象とするテーブル名
+
+例
+select count(fruit) from fruit_stock where price >=200 and madein ="日本";
+これで、fruit_stock内の200円以上の日本産のフルーツが何種類あるかが分かります。
+
+2* 値の合計値を取得
+記入法
+select sum(カラム名) from テーブル名;
+select sum+fromは決まり文句
+
+例
+select sum(number) from fruit_stock;
+これで、全てのフルーツの在庫数は何個あるかが分かります。
+
+3* 最大値・最小値を取得
+記入法
+        max
+select -----(カラム名) from テーブル名;
+        min
+select max/min+fromは決まり文句
+maxは最大値
+minは最小値
+
+例（最大値）
+select max(price) from fruit_stock;
+これで全フルーツのprice（値段）の最大値が分かります。
+
+例（最小値）
+select min(price) from fruit_stock;
+これで全フルーツのprice（値段）の最小値が分かります。
+
+4* 平均値を取得
+記入法
+select avg(カラム名) from テーブル名;
+select avg+fromは決まり文句
+
+例
+select avg(price) from fruit_stock;
+これで全フルーツのprice（値段）の平均値が分かります。

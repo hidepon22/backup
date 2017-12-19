@@ -1,0 +1,112 @@
+1.タイプセレクタ
+
+htmlのタグとスタイルを連動させるセレクタ
+
+htmlで
+
+<div class="ID">～～～</div>
+            or
+<id class="ID">～～～</id>
+　　　　　　or
+<h1 class="ID">～～～</h1>
+            or
+<p class="ID">～～～</p>
+など...
+
+CSSで
+
+～～～{}
+
+*～～～はhtmlないのheader/footer/body/h1～h6/table/img/form/など...
+
+2.idセレクタとタイプセレクタ
+
+
+*idセレクタ
+#～～～{}    同じid名は同じページ内に1度しか使えない
+
+*クラスセレクタ
+.～～～{}    同じクラス名を同じページ内に何度も使える
+
+3.IDセレクタ
+
+*1基本
+html                                             css    
+<div id="*The name of the ID"～～～</div>        #The name of the ID{color:black1}
+
+*2改行
+html                                             css
+<div id="ID-1"aaa</div>                          #ID-1{color:black;}
+<div id="ID-2"bbb</div>                          #ID-2{color:black;}
+
+aaa
+bbb
+
+になる
+
+*3改行せずにcssをいじる場合
+html                                             css
+<span id="ID-1">aaa</span>                      #ID-1{color:black;}
+<span id="ID-2">bbb</span>                      #ID-2{color:black;}
+
+aaabbb
+
+になる
+
+4.プロパティ
+
+*1 カラー
+～～～{color:～(type of color)～;}
+
+*2 バックグラウンドカラー
+～～～{background-color:～(type of color)～;}
+
+*3フォントサイズ
+～～～{font-size:～～;}
+
+*4フォント
+～～～{font-family:～～～;}
+
+*5textの位置(左寄せ/中央/右寄せ)
+～～～{text-align:～(left/center/right)～;}
+
+*6textの縦の位置
+～～～{line-height:～(1～%)～;}
+
+5.ボックス
+
+*1  Border
+対象のものを囲んでいる線の太さ、線のスタイル、色
+
+*2　Margin
+対象のもの（対象のものと他の物との間にある余白）の外側の余白
+
+*3　padding
+対象のものの内側の余白
+
+例
+～～～{border: 1px solid blue;}
+1px => 線の太さ
+solid　=> 線の種類
+blue =>　線の色
+
+*4 線の指定
+(border/margin/padding/など...)-(top/bottom/left/right/など...)
+
+例1
+～～～{border-top: 1px solid blue}
+
+*5 線のデザイン
+solid => 一本線
+double => 2本線
+botted => 点線
+dashed => 太い点線
+
+*6 ボックスの横並び
+～～～{float:left;}
+
+*7 ボックスを左や右に寄せる
+.box1{float:left}
+.box2{float:right}
+
+6.
