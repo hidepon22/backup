@@ -7,6 +7,7 @@ public class capsule {
 		taro.setName("山田太郎");
 		taro.setage(20);
 
-		System.out.println();
+		taro.showname();
+		taro.showage();
 	}
 }

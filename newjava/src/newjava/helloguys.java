@@ -1,14 +1,15 @@
 package newjava;
 
 public class helloguys {
+	
+	public static final int i=1;
 
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
 
-		String s = new String();
-		  s="Hello";
-		  System.out.println(s);
+		  System.out.println(i);
+		  static int i=2;
 
 	}
 
