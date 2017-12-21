@@ -1,0 +1,64 @@
+オブジェクト指向
+・インスタンス化＝コピー
+・コンストラクタ＝コピーの窓口
+・カプセル化＝隠蔽
+・継承＝拡張
+・実装＝ルール作り
+
+コマンドプロンプトで
+～～.java=コンピューターは読めない（人は読める）
+
+javac ～～.java　でコンパイルする
+
+すると～～.classというコンピューターが読めるファイルになる（人は読めない）
+
+java ～～で実行
+
+＊作ったファイルを消す方法
+del ～～.java
+
+
+
+１．インスタンス化
+String s = new String("123");
+
+・new＝インスタンス化
+・String("～～")＝コピーする
+
+System.out.print(s)
+実行
+123が出る
+
+
+２．コンストラクタ
+＊クラスの下にあるのはフィールド変数
+
+＊コンストラクタの中変数はローカル変数
+
+public class Person {　　　　　　　　　>　クラス
+ 　public String name = null;          >　フィールド変数(name)
+	public int age = 0;            >　フィールド変数(name)
+
+	public Person(){}
+
+	public Person(String name, int age){
+　　	　　this.name=name;　　　　　　＞　ローカル変数(this.nameのname)
+	　　this.age=age;　　　　　　　＞　ローカル変数(this.nameのname)
+
+
+*スコープ
+ javaには4つのアクセス修飾子がある
+
+private - 自分しか該当のプログラムが見えない
+何も書かない - 同じパッケージの中のプログラムは見える
+(デフォルト)
+protected - 同じパッケージの中+特別に許されたプログラムは見える
+public - すべてのプログラムが見える
+
+ スコープとはパッケージをどこまで見せるか
+
+
+３．カプセル化
+*set＝登録
+*get＝取得
+＊getとsetの後は必ず大文字
