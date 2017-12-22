@@ -4,7 +4,7 @@ public class Android {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
-		SmartPhone2 Android = new SmartPhone2();
+		Newph Android = new Newph();
 		Android.play();
 		Android.stop();
 		Android.next();
