@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/strut-2.3.dtd">
+<struts>
+ <constant name="struts.devMode" vale="ture" />
+ <package name="com.internousdev.ecsite.action" extends="struts-default">
+
+
+  <action name="GoHomeAction" method="execute"
+  class="com.internousdev.ecsite.action.GoHomeAction">
+   <result name="success">home.jsp</result>
+  </action>
+
+
+  <action name="HomeAction" method="execute"
+  class="com.internousdev.ecsite.action.HomeAction">
+   <result name="login">login.jsp</result>
+   <result name="success">buyItem.jsp</result>
+  </action>
+
+
+  <action name="LoginAction" method="execute"
+  class="com.internousdev.ecsite.action.LoginAction">
+   <result name="success">buyItem.jsp</result>
+   <result name="error">login.jsp</result>
+  </action>
+
+
+  <action name="UserCreateAction" method="execute"
+  class="com.internousdev.ecsite.action.UserCreateAction">
+   <result name="success">userCreate.jsp</result>
+   <result name="back">login.jsp</result>
+  </action>
+
+
+  <action name="UserCreateConfirmAction" method="execute"
+  class="com.internousdev.ecsite.action.UserCreateConfirmAction">
+   <result name="success">userCreateConfirm.jsp</result>
+   <result name="error">userCreate.jsp</result>
+  </action></package></struts>

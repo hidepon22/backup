@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.internousdev.template.dto.LoginDTO;
 import com.internousdev.template.util.DBConnector;
 
 public class LoginDAO {
@@ -10,7 +11,7 @@ public class LoginDAO {
 	private Connection connection = dbConnector.getConnection();
 	private LoginDTO loginDTO = new LoginDTO();
 	public LoginDTO getLoginUserInfo(String loginUserId, String loginPassword){
-		string sql ="SELECT * FROM login_user_transaction where login_id = ? AND login_pass = ?";
+		String sql ="SELECT * FROM login_user_transaction WHERE login_id = ? AND login_pass = ?";
 		try{
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
