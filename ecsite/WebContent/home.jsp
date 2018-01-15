@@ -10,7 +10,7 @@
  <meta http-equiv="imagetoolbar" content="no" />
  <meta name="description" content="" />
  <meta name="keywords" content="" />
- <title>H</title>
+ <title>Home</title>
 
  <style type="text/css">
   body{
@@ -48,7 +48,7 @@
 
   #footer{
    width:100%;
-   height:80;
+   height:80px;
    bacground-color:black;
    clear:both;
   }
@@ -67,10 +67,22 @@
 
  <div id="main">
   <div id="top">
-   <p></p>
+   <p>Home</p>
   </div>
   <div id="text-center">
-  </div></div>
+   <s:form action="HomeAction">
+    <s:submit value="商品購入" />
+   </s:form>
+   <s:if test="#session.id != null">
+    <p>ログアウトする場合は
+     <a href='<s:url action="Logout Action" />'>こちら</a>
+    </p>
+   </s:if>
+  </div>
+ </div>
+ <div id="footer">
+  <div id="pr"></div>
+ </div>
 
 </body>
 </html>
