@@ -1,4 +1,5 @@
 package com.internousdev.template.action;
+
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -17,7 +18,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		if(!(loginUserId.equals(""))
 				&&!(loginPassword.equals(""))
 				&&!(userName.equals(""))){
-			session.put("loginUserId", loginUserId);
+			session.put("loginUserId",loginUserId);
 			session.put("loginPassword",loginPassword);
 			session.put("userName",userName);
 		}else{
