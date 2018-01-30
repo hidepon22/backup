@@ -1,0 +1,158 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta http-equiv="Content-Style-Type" content="text/css" />
+ <meta http-equiv="Content-Script-Type" content="text/javascript" />
+ <meta http-equiv="imagetoolbar" content="no" />
+ <meta name="description" content="" />
+ <meta name="keywords" content="" />
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <title>BuyItemConfirm</title>
+
+ <style type="text/css">
+  body{
+   margin:0;
+   padding:0;
+   line-height:1.6;
+   letter-spacing:1px;
+   font-size:12px;
+   color:#333;
+   background:#fff;
+   }
+
+  table{
+   text-align: center;
+   margin: 0 auto;
+   }
+
+  #top{
+   width: 100%;
+   margin: 30px auto;
+   border: 1px so;id #333;
+   }
+
+  #header{
+   width:100%;
+   height:80px;
+   background-color:black;
+  }
+
+  #main{
+   width:100%;
+   height:500px;
+   text-align:center;
+  }
+
+  #footer{
+   width:100%;
+   height:80px;
+   bacground-color:black;
+   clear:both;
+  }
+
+  #text-link{
+   display:inline-block;
+   text-align:right;
+  }
+ div.rippleEffector {
+    position: absolute;
+    border-radius: 100%;
+ }
+
+ div.rippleButton {
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin: 10px;
+    width: 70px;
+    height: 30px;
+    font-size: 10px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px #333;
+    background-color: deeppink;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    }
+ </style>
+ <script type="text/javascript">
+  function submitAction(url){
+	  var RIPPLE_BUTTON = '.rippleButton'; // ボタンの要素
+	  var RIPPLE_EFFECTOR = '.rippleEffector'; // エフェクトする要素
+	  var RIPPLE_SIZE = $(RIPPLE_BUTTON).width(); // 波紋の大きさ(今はボタン幅と同じ)
+	  var RIPPLE_TIME = 150; // クリックしてから遷移するまでの時間
+	  var RIPPLE_OPACITY = .2; // 波紋の透明度
+	  var RIPPLE_EASING = 'swing'; // 波紋のeasing
+	  var RIPPLE_COLOR = '#fff'; //波紋の色
+
+	    $(RIPPLE_BUTTON).click(function (e) {
+	    var RIPPLE_OBJECT = $('<div></div>', {
+	      'class': RIPPLE_EFFECTOR.substring(1),
+	      css: { 'left': e.offsetX, 'top': e.offsetY, 'opacity': RIPPLE_OPACITY, 'backgroundColor': RIPPLE_COLOR }
+	    });
+	    $(this)
+	      .append(RIPPLE_OBJECT)
+	      .children(RIPPLE_EFFECTOR)
+	      .animate({
+	        width: RIPPLE_SIZE,
+	        height: RIPPLE_SIZE,
+	        top: e.offsetY - RIPPLE_SIZE / 2,
+	        left: e.offsetX - RIPPLE_SIZE / 2
+	      }, RIPPLE_TIME, RIPPLE_EASING, function () {
+	        location.href = $(RIPPLE_BUTTON).attr('data-href');
+	      });
+	  });
+	};
+ </script>
+</head>
+<body>
+ <div id="header">
+  <div id="pr"></div>
+ </div>
+
+ <div id="main">
+  <div id="top">
+   <p>BuyItemConfirm</p>
+  </div>
+  <div>
+   <s:form>
+    <tr>
+     <td>商品名</td>
+     <td><s:property value="session.buyItem_name" /></td>
+    </tr>
+    <tr>
+     <td>値段</td>
+     <td><s:property value="session.total_price" /><span>円</span></td>
+    </tr>
+    <tr>
+     <td>購入個数</td>
+     <td><s:property value="session.count" /><span>個</span></td>
+    </tr>
+    <tr>
+     <td>支払い方法</td>
+     <td><s:property value="session.pay" /></td>
+    </tr>
+    <tr>
+     <td><br></td>
+    </tr>
+    <tr>
+     <td><a href='<s:url action="GoHomeAction" />' class="rippleButton">ホーム</a></td>
+     <td><a href='<s:url action="MyPageAction" />' class="rippleButton">マイページ</a></td>
+    </tr>
+   </s:form>
+  </div>
+ </div>
+ <div id="footer">
+  <div id="pr"></div>
+ </div>
+</body>
+</html>

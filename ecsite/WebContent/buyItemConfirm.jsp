@@ -58,12 +58,26 @@
    display:inline-block;
    text-align:right;
   }
+  #rippleEffector {
+    position: absolute;
+    border-radius: 100%;
+  }
+
+  #rippleButton {
+    margin: 10px;
+    width: 70px;
+    height: 30px;
+    font-size: 10px;
+    border-radius: 2px;
+    box-shadow: 2px 2px 6px #333;
+    background-color: deeppink;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    }
  </style>
  <script type="text/javascript">
-  function submitAction(url){
-	  $('form').attr('action',url);
-	  $('form').submit();
-  }
  </script>
 </head>
 <body>
@@ -97,8 +111,8 @@
      <td><br></td>
     </tr>
     <tr>
-     <td><input type="button" value="戻る" onclick="submitAction('HomeAction')" /></td>
-     <td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')" /></td>
+     <td><a href='<s:url action="GoHomeAction" />'>ホーム</a></td>
+     <td><a href='<s:url action="MyPageAction" />'>マイページ</a></td>
     </tr>
    </s:form>
   </div>

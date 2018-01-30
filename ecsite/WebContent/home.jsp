@@ -49,13 +49,31 @@
   #footer{
    width:100%;
    height:80px;
-   bacground-color:black;
+   background-color:black;
    clear:both;
   }
 
   #text-center{
    display:inline-block;
    text-align:center;
+  }
+  #BuyItemB{
+   width: 150px;
+   height: 150px;
+   line-height: 150px;
+   margin:0 auto;
+   font-size: 30px;
+   text-decoration: none;
+   display: block;
+   text-align: center;
+   color: #FFFFFF;
+   background: #008DDD;
+   border-radius: 50%;
+   @-webkit-border-radius: 50%;
+   @-moz-border-radius: 50%;
+   box-shadow:2px 2px 2px #555;
+   text-shadow:-2px -2px #555;
+   background: linear-gradient(to bottom, rgba(0,0,200, 1) 0%, rgba(0,0,200,1) 50%, rgba(0, 0, 200, 0.5) 100%);
   }
  </style>
 
@@ -70,9 +88,7 @@
    <p>Home</p>
   </div>
   <div id="text-center">
-   <s:form action="HomeAction">
-    <s:submit value="商品購入" />
-   </s:form>
+   <a href='<s:url action="HomeAction" />' id="BuyItemB">商品購入</a>
    <s:if test="#session.id != null">
     <p>ログアウトする場合は
      <a href='<s:url action="LogoutAction" />'>こちら</a>

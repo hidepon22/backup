@@ -1,0 +1,31 @@
+<html lang="ja">
+ <head>
+  <meta charset-"UTF-8">
+  <title>Contact us</title>
+     <link rel="stylesheet" type="text/css" href="ectest.css">
+</head>
+
+<body>
+<div id="header">
+  <div id="pr"></div>
+</div>
+
+<div id="main">
+    <div id="top">
+        <p>Home</p>
+    </div>
+    <div id="text-center">
+        <a href=""><div class="BuyItemB">商品購入</div></a>
+        <s:if test="#session.id != null">
+            <p>ログアウトする場合は
+                <a href='<s:url action="LogoutAction" />'>こちら</a>
+            </p>
+        </s:if>
+    </div>
+</div>
+<div id="footer">
+    <div id="pr"></div>
+</div>
+    
+</body>
+</html>

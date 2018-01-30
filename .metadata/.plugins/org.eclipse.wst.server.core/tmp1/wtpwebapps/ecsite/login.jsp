@@ -57,6 +57,16 @@
    display:inline-block;
    text-align:right;
   }
+  #loginB{
+  background-color:blue;
+  padding:25px 25px;
+  border-style:none;
+  cursor: pointer;
+  border-radius: 50%;
+  @-webkit-border-radius: 50%;
+  @-moz-border-radius: 50%;
+  float:right;
+  }
  </style>
 
 </head>
@@ -71,11 +81,17 @@
   </div>
   <div>
    <h3>商品を購入する際にはログインをお願いします。</h3>
-   <s:form action="LoginAction">
-    <s:textfield name="loginUserId"/>
-    <s:password name="loginPassword"/>
-    <s:submit value="ログイン"/>
-   </s:form>
+   <div id="login">
+    <s:form action="LoginAction">
+     <div id="login_left">
+      <s:textfield name="loginUserId"/>
+      <s:password name="loginPassword"/>
+     </div>
+     <div id="login_right">
+      <s:submit value="ログイン" id="loginB"/>
+     </div>
+    </s:form>
+   </div>
    <br/>
    <div id="text-link">
     <p>新規ユーザー登録は

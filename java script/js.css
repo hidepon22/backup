@@ -1,0 +1,45 @@
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple .rp-effect {/*エフェクト*/
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;/*波紋の濃さ*/
+  transform: scale(0);
+  background: #FFF;/*波紋色*/
+  animation: ripple 700ms;
+  pointer-events: none; 
+}
+
+@-webkit-keyframes ripple {
+  to {
+    opacity: 0;
+    transform: scale(2.0);
+  }
+}
+
+@keyframes ripple {
+  to {
+    opacity: 0;
+    transform: scale(2.0);
+  }
+}
+.raised{
+  display: inline-block;
+  background-color: #26a69b;
+  color: #FFF;
+  font-size: 1em;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  padding: 0.6em 1.3em;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s;
+}
+.raised:hover{
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+}
