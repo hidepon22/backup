@@ -72,10 +72,11 @@
      <td>商品価格</td><td><input id="buyItem_price" size="10" type="text" /><span>円</span></td>
     </tr>
     <tr>
+     <td>商品個数</td><td><input id=""
      <td><s:submit value="追加" /></td>
     </tr>
     <br/>
-
+    
     </s:form></div></div>
 
 </body>

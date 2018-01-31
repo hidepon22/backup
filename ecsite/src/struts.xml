@@ -74,11 +74,6 @@
    <result name="error">error.jsp</result>
   </action>
 
-  <action name="Root" method="execute" class="com.internousdev.ecsite.action.RootAction">
-   <result name="success">home.jsp</result>
-   <result name="back">login.jsp</result>
-  </action>
-
   <action name="LogoutAction" method="execute" class="com.internousdev.ecsite.action.LogoutAction">
    <result name="success">home.jsp</result>
   </action>
